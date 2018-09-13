@@ -10,24 +10,33 @@ pyds
 Introduction
 ~~~~~~~~~~~~
 
-This is the compilation of simple python pacakages, which is useful for data anaylsis in astrophysics. 
-All modules are coded with python 2.7. This is open source, which is permitted to be modified and spread. 
-The contact information is noted at https://astrodoo.github.io
+    This is the compilation of simple python pacakages, which is useful for data anaylsis in astrophysics. 
+    All modules are coded with python 2.7. This is open source, which is permitted to be modified and spread. 
+    The contact information is noted at https://astrodoo.github.io
 
 
 Installation
 ~~~~~~~~~~~~
 
-   Download files from 
+    Download files from 
 
-   http://github.com/astrodoo/pyds
+    http://github.com/astrodoo/pyds
 
-   or by git tools,
+    or by git tools,
 
 .. parsed-literal::
 
-   git clone https://github.com/astrodoo/pyds.git
+    git clone https://github.com/astrodoo/pyds.git
 
+
+Dependence
+~~~~~~~~~~
+   
+    This package depends on 
+
+    * numpy
+    * astropy
+    * matplotlib
 
 
 .. toctree::
@@ -36,6 +45,7 @@ Installation
 
    astro
    img2data
+   cosmonom
    tools
    SodShockTube
 

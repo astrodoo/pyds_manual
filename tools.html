@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>pyds.tools &mdash; pyds v1.0 documentation</title>
+  <title>pyds.tools &mdash; pyds  documentation</title>
   
 
   
@@ -35,9 +35,9 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="pyds v1.0 documentation" href="index.html"/>
+    <link rel="top" title="pyds  documentation" href="index.html"/>
         <link rel="next" title="pyds.numerical.sodshock" href="SodShockTube.html"/>
-        <link rel="prev" title="pyds.img2data" href="img2data.html"/> 
+        <link rel="prev" title="pyds.cosmonom" href="cosmonom.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -66,7 +66,7 @@
             
             
               <div class="version">
-                v1.0
+                v2.0
               </div>
             
           
@@ -92,11 +92,14 @@
             
               <p class="caption"><span class="caption-text">Table of Contents</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="astro.html">For using astrounit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="astro.html">pyds.astro</a></li>
 <li class="toctree-l1"><a class="reference internal" href="img2data.html">pyds.img2data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cosmonom.html">pyds.cosmonom</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">pyds.tools</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#pyds.tools.readcol">pyds.tools.readcol</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pyds.tools.axpos">pyds.tools.axpos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pyds.tools.mimicAlpha_to_rgb">pyds.tools.mimicAlpha_to_rgb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pyds.tools.mtickexp">pyds.tools.mtickexp</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="SodShockTube.html">pyds.numerical.sodshock</a></li>
@@ -365,9 +368,6 @@ div.nboutput div.output_area.stderr {
 </style>
 <div class="section" id="pyds.tools">
 <h1>pyds.tools<a class="headerlink" href="#pyds.tools" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li>compilations of tools in python</li>
-</ul>
 <div class="section" id="pyds.tools.readcol">
 <h2>pyds.tools.readcol<a class="headerlink" href="#pyds.tools.readcol" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -382,10 +382,11 @@ div.nboutput div.output_area.stderr {
 <span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Let&#39;s prepare the mock ascii data. Once you generate it, we can simply check it like this</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">import</span> <span class="nn">os</span>
+<span class="c1">#import os</span>
 
 <span class="c1"># locate of sample data</span>
-<span class="n">fdir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;PYTHONDATA&#39;</span><span class="p">]</span>
+<span class="c1">#fdir = os.environ[&#39;PYTHONDATA&#39;]</span>
+<span class="n">fdir</span> <span class="o">=</span> <span class="s1">&#39;./example_data/&#39;</span>
 <span class="n">fname</span> <span class="o">=</span> <span class="n">fdir</span><span class="o">+</span><span class="s1">&#39;test_usr&#39;</span>
 
 <span class="n">testf</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
@@ -425,10 +426,11 @@ div.nboutput div.output_area.stderr {
 <span class="sd">    If &#39;NAN&#39; is read as &#39;integer&#39; type, it would produce weird large number.</span>
 <span class="sd">    (This is not bug, but just the intrinsic treatment of the python until now.)</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">import</span> <span class="nn">os</span>
+<span class="c1">#import os</span>
 <span class="kn">from</span> <span class="nn">pyds.tools</span> <span class="kn">import</span> <span class="n">readcol</span>
 
-<span class="n">fdir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;PYTHONDATA&#39;</span><span class="p">]</span>
+<span class="c1">#fdir = os.environ[&#39;PYTHONDATA&#39;]</span>
+<span class="n">fdir</span> <span class="o">=</span> <span class="s1">&#39;./example_data/&#39;</span>
 <span class="n">fname</span> <span class="o">=</span> <span class="n">fdir</span><span class="o">+</span><span class="s1">&#39;test_usr&#39;</span>
 
 <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span> <span class="o">=</span> <span class="n">readcol</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span><span class="n">format</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;i&#39;</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="s1">&#39;f&#39;</span><span class="p">,</span><span class="s1">&#39;s&#39;</span><span class="p">],</span><span class="n">nskip</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -533,7 +535,7 @@ div.nboutput div.output_area.stderr {
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
-<span></span>&lt;matplotlib.text.Annotation at 0x7f43080995d0&gt;
+<span></span>&lt;matplotlib.text.Annotation at 0x7f8dee7a8bd0&gt;
 </pre></div>
 </div>
 </div>
@@ -612,7 +614,7 @@ div.nboutput div.output_area.stderr {
 </pre></div>
 </div>
 <div class="output_area highlight-none"><div class="highlight"><pre>
-<span></span>&lt;matplotlib.text.Annotation at 0x7f4303e96e10&gt;
+<span></span>&lt;matplotlib.text.Annotation at 0x7f8dee5c6390&gt;
 </pre></div>
 </div>
 </div>
@@ -706,6 +708,117 @@ div.nboutput div.output_area.stderr {
 </div>
 </div>
 </div>
+<div class="section" id="pyds.tools.mimicAlpha_to_rgb">
+<h2>pyds.tools.mimicAlpha_to_rgb<a class="headerlink" href="#pyds.tools.mimicAlpha_to_rgb" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>get the tuple of rgb, mimicking alpha (transparency) effect</li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython2"><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Since the post-script files cannot deal with the transparency,</span>
+<span class="sd">    one may need to mimic the alpha effect for ps or eps file.</span>
+
+<span class="sd">    In this example, the line and the markeredgecolor would not be trasparent,</span>
+<span class="sd">    but the markerfacecolor would be transparent with the given alpha.</span>
+
+<span class="sd">    Note that in this example, we draw each item twice, and then the legend should be merged.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">pyds.tools</span> <span class="kn">import</span> <span class="n">mimicAlpha_to_rgb</span> <span class="k">as</span> <span class="n">ma</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">y1</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">y2</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">10</span>
+<span class="n">y3</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">20</span>
+<span class="n">y4</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">30</span>
+<span class="n">y5</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="mi">40</span>
+
+<span class="n">clr</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span>
+<span class="c1"># transform the color with alpha to tuple (r,g,b) mimicking the alpha</span>
+<span class="n">clralp1</span> <span class="o">=</span> <span class="n">ma</span><span class="p">(</span><span class="n">clr</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">bg</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">clralp2</span> <span class="o">=</span> <span class="n">ma</span><span class="p">(</span><span class="n">clr</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span><span class="n">bg</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">clralp3</span> <span class="o">=</span> <span class="n">ma</span><span class="p">(</span><span class="n">clr</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">bg</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">clralp4</span> <span class="o">=</span> <span class="n">ma</span><span class="p">(</span><span class="n">clr</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span><span class="n">bg</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">clralp5</span> <span class="o">=</span> <span class="n">ma</span><span class="p">(</span><span class="n">clr</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span><span class="n">bg</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">)</span>
+
+<span class="c1"># draw the figure</span>
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="c1"># in order to overlap the line on the symbols</span>
+<span class="c1"># one item should be drawn twice:</span>
+<span class="c1"># 1) filled marker 2) line</span>
+<span class="n">mk1</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y1</span><span class="p">,</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="n">clr</span><span class="p">,</span><span class="n">ms</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">fillstyle</span><span class="o">=</span><span class="s1">&#39;full&#39;</span><span class="p">,</span><span class="n">mfc</span><span class="o">=</span><span class="n">clralp1</span><span class="p">,</span><span class="n">mec</span><span class="o">=</span><span class="n">clr</span><span class="p">)</span>
+<span class="n">ln1</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y1</span><span class="p">,</span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="n">clr</span><span class="p">)</span>
+<span class="n">mk2</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y2</span><span class="p">,</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="n">clr</span><span class="p">,</span><span class="n">ms</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">fillstyle</span><span class="o">=</span><span class="s1">&#39;full&#39;</span><span class="p">,</span><span class="n">mfc</span><span class="o">=</span><span class="n">clralp2</span><span class="p">,</span><span class="n">mec</span><span class="o">=</span><span class="n">clr</span><span class="p">)</span>
+<span class="n">ln2</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y2</span><span class="p">,</span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="n">clr</span><span class="p">)</span>
+<span class="n">mk3</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y3</span><span class="p">,</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="n">clr</span><span class="p">,</span><span class="n">ms</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">fillstyle</span><span class="o">=</span><span class="s1">&#39;full&#39;</span><span class="p">,</span><span class="n">mfc</span><span class="o">=</span><span class="n">clralp3</span><span class="p">,</span><span class="n">mec</span><span class="o">=</span><span class="n">clr</span><span class="p">)</span>
+<span class="n">ln3</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y3</span><span class="p">,</span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="n">clr</span><span class="p">)</span>
+<span class="n">mk4</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y4</span><span class="p">,</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="n">clr</span><span class="p">,</span><span class="n">ms</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">fillstyle</span><span class="o">=</span><span class="s1">&#39;full&#39;</span><span class="p">,</span><span class="n">mfc</span><span class="o">=</span><span class="n">clralp4</span><span class="p">,</span><span class="n">mec</span><span class="o">=</span><span class="n">clr</span><span class="p">)</span>
+<span class="n">ln4</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y4</span><span class="p">,</span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="n">clr</span><span class="p">)</span>
+<span class="n">mk5</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y5</span><span class="p">,</span><span class="s1">&#39;o&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="n">clr</span><span class="p">,</span><span class="n">ms</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">fillstyle</span><span class="o">=</span><span class="s1">&#39;full&#39;</span><span class="p">,</span><span class="n">mfc</span><span class="o">=</span><span class="n">clralp5</span><span class="p">,</span><span class="n">mec</span><span class="o">=</span><span class="n">clr</span><span class="p">)</span>
+<span class="n">ln5</span><span class="p">,</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y5</span><span class="p">,</span><span class="s1">&#39;-&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="n">clr</span><span class="p">)</span>
+
+<span class="c1"># merge the legend</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">([(</span><span class="n">mk1</span><span class="p">,</span><span class="n">ln1</span><span class="p">),(</span><span class="n">mk2</span><span class="p">,</span><span class="n">ln2</span><span class="p">),(</span><span class="n">mk3</span><span class="p">,</span><span class="n">ln3</span><span class="p">),(</span><span class="n">mk4</span><span class="p">,</span><span class="n">ln4</span><span class="p">),(</span><span class="n">mk5</span><span class="p">,</span><span class="n">ln5</span><span class="p">)]</span> \
+         <span class="p">,[</span><span class="s2">&quot;10%&quot;</span><span class="p">,</span><span class="s2">&quot;30%&quot;</span><span class="p">,</span><span class="s2">&quot;50%&quot;</span><span class="p">,</span><span class="s2">&quot;70%&quot;</span><span class="p">,</span><span class="s2">&quot;90%&quot;</span><span class="p">],</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">figdir</span> <span class="o">=</span> <span class="s1">&#39;./example_data/&#39;</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">figdir</span><span class="o">+</span><span class="s1">&#39;markeralpha.eps&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/tools_9_0.png" src="_images/tools_9_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="pyds.tools.mtickexp">
+<h2>pyds.tools.mtickexp<a class="headerlink" href="#pyds.tools.mtickexp" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>set the tick format to factor <span class="math">\(\times 10^{\rm exponent}\)</span></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython2"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">pyds.tools</span> <span class="kn">import</span> <span class="n">mtickexp</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">1e-5</span><span class="p">,</span><span class="o">-</span><span class="mf">3e-5</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,(</span><span class="n">ax1</span><span class="p">,</span><span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+<span class="n">mtickexp</span><span class="p">(</span><span class="n">ax2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">pointnum</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/tools_11_0.png" src="_images/tools_11_0.png" />
+</div>
+</div>
+</div>
 </div>
 
 
@@ -721,7 +834,7 @@ div.nboutput div.output_area.stderr {
         <a href="SodShockTube.html" class="btn btn-neutral float-right" title="pyds.numerical.sodshock" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="img2data.html" class="btn btn-neutral" title="pyds.img2data" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="cosmonom.html" class="btn btn-neutral" title="pyds.cosmonom" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -731,7 +844,7 @@ div.nboutput div.output_area.stderr {
   <div role="contentinfo">
     <p>
         &copy; Copyright 2017, Doosoo Yoon.
-      Last updated on Sep 12, 2018.
+      Last updated on Sep 14, 2018.
 
     </p>
   </div>
@@ -753,7 +866,7 @@ div.nboutput div.output_area.stderr {
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'v1.0',
+            VERSION:'',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

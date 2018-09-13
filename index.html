@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>pyds &mdash; pyds v1.0 documentation</title>
+  <title>pyds &mdash; pyds  documentation</title>
   
 
   
@@ -35,8 +35,8 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="pyds v1.0 documentation" href="#"/>
-        <link rel="next" title="For using astrounit" href="astro.html"/> 
+    <link rel="top" title="pyds  documentation" href="#"/>
+        <link rel="next" title="pyds.astro" href="astro.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -65,7 +65,7 @@
             
             
               <div class="version">
-                v1.0
+                v2.0
               </div>
             
           
@@ -91,8 +91,9 @@
             
               <p class="caption"><span class="caption-text">Table of Contents</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="astro.html">For using astrounit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="astro.html">pyds.astro</a></li>
 <li class="toctree-l1"><a class="reference internal" href="img2data.html">pyds.img2data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cosmonom.html">pyds.cosmonom</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools.html">pyds.tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="SodShockTube.html">pyds.numerical.sodshock</a></li>
 </ul>
@@ -198,9 +199,10 @@
 <h1>pyds<a class="headerlink" href="#pyds" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
-<p>This is the compilation of simple python pacakages, which is useful for data anaylsis in astrophysics.
+<blockquote>
+<div>This is the compilation of simple python pacakages, which is useful for data anaylsis in astrophysics.
 All modules are coded with python 2.7. This is open source, which is permitted to be modified and spread.
-The contact information is noted at <a class="reference external" href="https://astrodoo.github.io">https://astrodoo.github.io</a></p>
+The contact information is noted at <a class="reference external" href="https://astrodoo.github.io">https://astrodoo.github.io</a></div></blockquote>
 </div>
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
@@ -212,11 +214,23 @@ The contact information is noted at <a class="reference external" href="https://
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">astrodoo</span><span class="o">/</span><span class="n">pyds</span><span class="o">.</span><span class="n">git</span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="dependence">
+<h2>Dependence<a class="headerlink" href="#dependence" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>This package depends on</p>
+<ul class="simple">
+<li>numpy</li>
+<li>astropy</li>
+<li>matplotlib</li>
+</ul>
+</div></blockquote>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Table of Contents</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="astro.html">For using astrounit</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="astro.html#For-Using-astroeq">For Using astroeq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="astro.html">pyds.astro</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="astro.html#pyds.astro.astrounit">pyds.astro.astrounit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="astro.html#pyds.astro.astroeq">pyds.astro.astroeq</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="img2data.html">pyds.img2data</a><ul>
@@ -224,9 +238,12 @@ The contact information is noted at <a class="reference external" href="https://
 <li class="toctree-l2"><a class="reference internal" href="img2data.html#Log-scale-plot">Log scale plot</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="cosmonom.html">pyds.cosmonom</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools.html">pyds.tools</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="tools.html#pyds.tools.readcol">pyds.tools.readcol</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tools.html#pyds.tools.axpos">pyds.tools.axpos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#pyds.tools.mimicAlpha_to_rgb">pyds.tools.mimicAlpha_to_rgb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tools.html#pyds.tools.mtickexp">pyds.tools.mtickexp</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="SodShockTube.html">pyds.numerical.sodshock</a></li>
@@ -245,7 +262,7 @@ The contact information is noted at <a class="reference external" href="https://
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="astro.html" class="btn btn-neutral float-right" title="For using astrounit" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="astro.html" class="btn btn-neutral float-right" title="pyds.astro" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
     </div>
@@ -256,7 +273,7 @@ The contact information is noted at <a class="reference external" href="https://
   <div role="contentinfo">
     <p>
         &copy; Copyright 2017, Doosoo Yoon.
-      Last updated on Sep 12, 2018.
+      Last updated on Sep 14, 2018.
 
     </p>
   </div>
@@ -278,7 +295,7 @@ The contact information is noted at <a class="reference external" href="https://
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'v1.0',
+            VERSION:'',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,

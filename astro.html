@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>For using astrounit &mdash; pyds v1.0 documentation</title>
+  <title>pyds.astro &mdash; pyds  documentation</title>
   
 
   
@@ -35,7 +35,7 @@
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="pyds v1.0 documentation" href="index.html"/>
+    <link rel="top" title="pyds  documentation" href="index.html"/>
         <link rel="next" title="pyds.img2data" href="img2data.html"/>
         <link rel="prev" title="pyds" href="index.html"/> 
 
@@ -66,7 +66,7 @@
             
             
               <div class="version">
-                v1.0
+                v2.0
               </div>
             
           
@@ -92,14 +92,13 @@
             
               <p class="caption"><span class="caption-text">Table of Contents</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">For using astrounit</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#For-Using-astroeq">For Using astroeq</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Formulae-in-astronomy">Formulae in astronomy</a></li>
-</ul>
-</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">pyds.astro</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#pyds.astro.astrounit">pyds.astro.astrounit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pyds.astro.astroeq">pyds.astro.astroeq</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="img2data.html">pyds.img2data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cosmonom.html">pyds.cosmonom</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools.html">pyds.tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="SodShockTube.html">pyds.numerical.sodshock</a></li>
 </ul>
@@ -146,7 +145,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>For using astrounit</li>
+      <li>pyds.astro</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -365,9 +364,25 @@ div.nboutput div.output_area.stderr {
     margin-right: 4px;  /* make room for the exclamation icon */
 }
 </style>
-<div class="section" id="For-using-astrounit">
-<h1>For using astrounit<a class="headerlink" href="#For-using-astrounit" title="Permalink to this headline">¶</a></h1>
-<p>For the purpose of quick reading the astronomical constants in cgs unit.</p>
+<div class="section" id="pyds.astro">
+<h1>pyds.astro<a class="headerlink" href="#pyds.astro" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="pyds.astro.astrounit">
+<h2>pyds.astro.astrounit<a class="headerlink" href="#pyds.astro.astrounit" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>For the purpose of quick reading the astronomical constants in cgs
+unit.</li>
+<li>This module may be particularly useful if you compile it in the
+start-up batch file.</li>
+</ul>
+<ol class="arabic simple">
+<li>add PYTHONSTARTUP variable to .bashrc
+<code class="docutils literal"><span class="pre">export</span> <span class="pre">PYTHONSTARTUP=$PYTHONPATH/startup.py</span></code> or .tcshrc
+<code class="docutils literal"><span class="pre">setenv</span> <span class="pre">PYTHONSTARTUP</span> <span class="pre">$PYTHONPATH/startup.py</span></code></li>
+<li>in startup.py, add the line below:
+<code class="docutils literal"><span class="pre">from</span> <span class="pre">pyds.astro</span> <span class="pre">import</span> <span class="pre">astrounit</span> <span class="pre">as</span> <span class="pre">unit</span></code></li>
+<li>Then, whenever you open the python, you can use the units without
+hassle.</li>
+</ol>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [1]:
@@ -376,7 +391,7 @@ div.nboutput div.output_area.stderr {
 <div class="input_area highlight-ipython2"><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">pyds.astro</span> <span class="kn">import</span> <span class="n">astrounit</span> <span class="k">as</span> <span class="n">unit</span>
 
-<span class="n">unit</span><span class="p">()</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<span class="n">unit</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -439,9 +454,12 @@ not in astropy:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython2"><div class="highlight"><pre>
-<span></span><span class="kn">from</span> <span class="nn">astropy</span> <span class="kn">import</span> <span class="n">constants</span> <span class="k">as</span> <span class="n">cons</span>
+<span></span><span class="sd">&quot;&quot;&quot; In fact, the most values are referred to those of astropy package. This code</span>
+<span class="sd">    is aimed to call the astrophysical costant in cgs unit somewhat easily. &quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">astropy</span> <span class="kn">import</span> <span class="n">constants</span> <span class="k">as</span> <span class="n">cons</span>
+<span class="kn">from</span> <span class="nn">pyds.astro</span> <span class="kn">import</span> <span class="n">astrounit</span> <span class="k">as</span> <span class="n">unit</span>
 
-<span class="k">print</span> <span class="n">cons</span><span class="o">.</span><span class="n">G</span><span class="o">.</span><span class="n">cgs</span><span class="o">.</span><span class="n">value</span>
+<span class="k">print</span> <span class="n">cons</span><span class="o">.</span><span class="n">G</span><span class="o">.</span><span class="n">cgs</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">unit</span><span class="o">.</span><span class="n">g</span>
 </pre></div>
 </div>
 </div>
@@ -450,7 +468,7 @@ not in astropy:
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-6.67384e-08
+6.67384e-08 6.67384e-08
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -499,10 +517,14 @@ not in astropy:
 None
 </pre></div></div>
 </div>
-<div class="section" id="For-Using-astroeq">
-<h2>For Using astroeq<a class="headerlink" href="#For-Using-astroeq" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="Formulae-in-astronomy">
-<h3>Formulae in astronomy<a class="headerlink" href="#Formulae-in-astronomy" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="pyds.astro.astroeq">
+<h2>pyds.astro.astroeq<a class="headerlink" href="#pyds.astro.astroeq" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Formulae in astronomy</li>
+<li>Most of equations fit to be in cgs unit.</li>
+<li>Some equations may need to be double-checked before their usages.</li>
+</ul>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
 <span></span>In [5]:
@@ -533,16 +555,131 @@ None
 0.0210074181092
 </pre></div></div>
 </div>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [ ]:
+<span></span>In [6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython2"><div class="highlight"><pre>
-<span></span>
+<span></span><span class="n">help</span><span class="p">(</span><span class="n">eq</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Help on module pyds.astro.astroeq in pyds.astro:
+
+NAME
+    pyds.astro.astroeq
+
+FILE
+    /home/astrodoo/lib/py_lib/pyds/astro/astroeq.py
+
+DESCRIPTION
+    filename:
+        astroeq.py
+
+    PURPOSE:
+        collection of formulae in astronomy
+
+    Written by:
+        Doosoo Yoon
+        Shanghai Astronomical Observatory
+
+    History:
+        Written, 22 November 2017
+
+FUNCTIONS
+    Ledd(mbh)
+        Eddington Luminosity
+        mbh should be in cgs unit.
+        returned value would be in erg/s unit.
+
+    Ljeans(T=0.0, rho=1.0, mmw=1.3)
+        Jean&#39;s length (assume the uniform density at the spherical shape) in cm unit
+        Ljeans = 2 x Rjeans, where Rjeans = (Mjeans/ (4/3 pi rho))^(1/3)
+        (using eq.(5.27) for Rjeans in astropedia)
+
+        keywords:
+           T: temperature in K
+           rho: density in g/cm3
+           mmw: mean molecular weight (default=1.3 for neutral solar abundance)
+
+    Mdotbondi(mbh=1.0, rho=1.0, cs=1.0)
+        Bondi Accretion rate
+        mbh, rho, cs(sound speed) should be in cgs unit
+        returned value would be in cm unit.
+
+        keywords:
+            mbh: black hole mass in g unit
+            rho: density in g/cm3 unit
+            cs: sound speed in cm/s unit
+
+    Mdotedd(mbh, radeff=0.1)
+        Eddington BH mass accretion rate
+        mbh should be in cgs unit.
+        returned value would be in g/s unit
+
+        args:
+            mbh: black hole mass in g unit
+        keywords:
+            radeff: radiative efficiency (default=0.1)
+
+    Mjeans(T=0.0, rho=1.0, mmw=1.3)
+        Jean&#39;s mass (assume the uniform density at the spherical shape) in g unit
+        (eq.(5.26) in astropedia)
+
+        keywords:
+           T: temperature in K
+           rho: density in g/cm3
+           mmw: mean molecular weight (default=1.3 for neutral solar abundance)
+
+    cs(gamma=1.6666666666666667, **keywords)
+        sound speed
+        Either of T (temperature) or P (pressure) &amp; rho (density) should be entered
+        keywords:
+             gamma: adiabatic index (default: 5./3.)
+        **keywords:
+             T: temperature in K
+             P: pressure in cgs
+             rho: density in cgs
+             mmw: mean molecular weight (default: 0.62 for fully ionized)
+
+    rbondi(mbh=1.0, cs=1.0)
+        Bondi radius
+        mbh and cs(sound speed) should be in cgs unit
+        returned value would be in cm unit.
+
+        keywords:
+            mbh: black hole mass in g unit
+            cs: sound speed in cm/s unit
+
+    rsh(mbh)
+        Schwarschild radius
+        mbh shoud be in cgs unit.
+        returned value would be in cm unit.
+
+    tff(rho=1.0)
+        free-fall time scale (assume the uniform density at the spherical shape) in s unit
+        (eq.(5.28) in astropedia)
+
+        keywords:
+            rho: density in g/cm3
+
+    vkep(pointmass, r=1.0)
+        Keplerian velocity in the gravitional potential due to point mass.
+        returned value would be in cm/s
+
+        args:
+            pointmass: mass of the central point in g
+        keywords:
+            r: radius
+
+
+</pre></div></div>
 </div>
 </div>
 </div>
@@ -570,7 +707,7 @@ None
   <div role="contentinfo">
     <p>
         &copy; Copyright 2017, Doosoo Yoon.
-      Last updated on Sep 12, 2018.
+      Last updated on Sep 14, 2018.
 
     </p>
   </div>
@@ -592,7 +729,7 @@ None
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
-            VERSION:'v1.0',
+            VERSION:'',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
