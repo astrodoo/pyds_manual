@@ -68,7 +68,7 @@
             
             
               <div class="version">
-                v2.0
+                v2.1
               </div>
             
           
@@ -97,6 +97,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">pyds.astro</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#pyds.astro.astrounit">pyds.astro.astrounit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pyds.astro.astroeq">pyds.astro.astroeq</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pyds.astro.bhscale">pyds.astro.bhscale</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="img2data.html">pyds.img2data</a></li>
@@ -383,7 +384,7 @@ start-up batch file.</li>
 <li>in startup.py, add the line below:
 <code class="docutils literal"><span class="pre">from</span> <span class="pre">pyds.astro</span> <span class="pre">import</span> <span class="pre">astrounit</span> <span class="pre">as</span> <span class="pre">unit</span></code></li>
 <li>Then, whenever you open the python, you can use the units without
-hassle.</li>
+hassels.</li>
 </ol>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
@@ -684,6 +685,84 @@ FUNCTIONS
 </pre></div></div>
 </div>
 </div>
+<div class="section" id="pyds.astro.bhscale">
+<h2>pyds.astro.bhscale<a class="headerlink" href="#pyds.astro.bhscale" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>calculate the radius of event horizon and the innermost stable
+circular orbit with the given parameters of black hole (mass, spin)</li>
+<li>visualize the scales</li>
+</ul>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython2"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">pyds.astro</span> <span class="kn">import</span> <span class="n">bhscale</span>
+
+<span class="c1"># mbh: black hole mass in solar mass</span>
+<span class="c1"># distance: distance to the target in kpc unit</span>
+<span class="c1"># spin: spin of black hole</span>
+<span class="n">Sgr</span> <span class="o">=</span> <span class="n">bhscale</span><span class="p">(</span><span class="n">mbh</span><span class="o">=</span><span class="mf">4.1e6</span><span class="p">,</span> <span class="n">distance</span><span class="o">=</span><span class="mf">8.1</span><span class="p">,</span> <span class="n">spin</span><span class="o">=</span><span class="mf">0.9375</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython2"><div class="highlight"><pre>
+<span></span><span class="k">print</span> <span class="s1">&#39;rg = </span><span class="si">%e</span><span class="s1"> cm&#39;</span><span class="o">%</span><span class="k">Sgr</span>.rg
+<span class="k">print</span> <span class="s1">&#39;rh = </span><span class="si">%f</span><span class="s1"> rg&#39;</span><span class="o">%</span><span class="k">Sgr</span>.rh
+<span class="k">print</span> <span class="s1">&#39;risco = </span><span class="si">%f</span><span class="s1"> rg&#39;</span><span class="o">%</span><span class="k">Sgr</span>.risco
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+rg = 6.054163e+11 cm
+rh = 1.347985 rg
+risco = 2.044201 rg
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none"><div class="highlight"><pre>
+<span></span>In [6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython2"><div class="highlight"><pre>
+<span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+
+<span class="n">figdir</span> <span class="o">=</span> <span class="s1">&#39;./example_data/&#39;</span>
+<span class="n">Sgr</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">rgmax</span><span class="o">=</span><span class="mf">1e3</span><span class="p">,</span><span class="n">log</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">figdir</span><span class="o">+</span><span class="s2">&quot;bhscale.eps&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+BH Params: Mbh=4.100000e+06 M_sun, spin=0.937500, Distance=8.100000e+00 kpc
+rg: 6.054163e+11 cm
+rh: 1.347985 rg
+risco: 2.044201 rg
+saved to ./example_data/bhscale.eps
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/astro_12_1.png" src="_images/astro_12_1.png" />
+</div>
+</div>
+</div>
 </div>
 
 
@@ -709,7 +788,7 @@ FUNCTIONS
   <div role="contentinfo">
     <p>
         &copy; Copyright 2017, Doosoo Yoon.
-      Last updated on Sep 14, 2018.
+      Last updated on Jan 25, 2019.
 
     </p>
   </div>
