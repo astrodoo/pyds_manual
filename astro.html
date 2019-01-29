@@ -405,22 +405,22 @@ hassels.</li>
 <div class="highlight"><pre>
     name         name in astropy         value in cgs    unit
 ----------------------------------------------------------------------
-      me                     m_e         9.109383e-28    g
+      me                     m_e         9.109384e-28    g
       kb                     k_B         1.380649e-16    erg / K
        c                       c         2.997925e+10    cm / s
-    rsun                   R_sun         6.955080e+10    cm
-       g                       G         6.673840e-08    cm3 / (g s2)
+    rsun                   R_sun         6.957000e+10    cm
+       g                       G         6.674080e-08    cm3 / (g s2)
       pc                      pc         3.085678e+18    cm
        h                       h         6.626070e-27    erg s
       mn                     m_n         1.674927e-24    g
       mh                     m_p         1.672622e-24    g
- sigmaSB                sigma_sb         5.670373e-05    g / (K4 s3)
-    msun                   M_sun         1.989100e+33    g
+ sigmaSB                sigma_sb         5.670367e-05    g / (K4 s3)
+    msun                   M_sun         1.988475e+33    g
      kpc                     kpc         3.085678e+21    cm
       au                      au         1.495979e+13    cm
       mp                     m_p         1.672622e-24    g
   sigmaT                 sigma_T         6.652459e-25    cm2
-    lsun                   L_sun         3.846000e+33    erg / s
+    lsun                   L_sun         3.828000e+33    erg / s
      amu                       u         1.660539e-24    g
 ----------------------------------------------------------------------
 not in astropy:
@@ -448,7 +448,7 @@ not in astropy:
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-6.67384e-08 3.08567758147e+18 9.45425495549e+17
+6.67408e-08 3.08567758147e+18 9.45425495549e+17
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -471,7 +471,7 @@ not in astropy:
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-6.67384e-08 6.67384e-08
+6.67408e-08 6.67408e-08
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -493,22 +493,22 @@ not in astropy:
 <div class="highlight"><pre>
     name         name in astropy         value in cgs    unit
 ----------------------------------------------------------------------
-      me                     m_e         9.109383e-28    g
+      me                     m_e         9.109384e-28    g
       kb                     k_B         1.380649e-16    erg / K
        c                       c         2.997925e+10    cm / s
-    rsun                   R_sun         6.955080e+10    cm
-       g                       G         6.673840e-08    cm3 / (g s2)
+    rsun                   R_sun         6.957000e+10    cm
+       g                       G         6.674080e-08    cm3 / (g s2)
       pc                      pc         3.085678e+18    cm
        h                       h         6.626070e-27    erg s
       mn                     m_n         1.674927e-24    g
       mh                     m_p         1.672622e-24    g
- sigmaSB                sigma_sb         5.670373e-05    g / (K4 s3)
-    msun                   M_sun         1.989100e+33    g
+ sigmaSB                sigma_sb         5.670367e-05    g / (K4 s3)
+    msun                   M_sun         1.988475e+33    g
      kpc                     kpc         3.085678e+21    cm
       au                      au         1.495979e+13    cm
       mp                     m_p         1.672622e-24    g
   sigmaT                 sigma_T         6.652459e-25    cm2
-    lsun                   L_sun         3.846000e+33    erg / s
+    lsun                   L_sun         3.828000e+33    erg / s
      amu                       u         1.660539e-24    g
 ----------------------------------------------------------------------
 not in astropy:
@@ -552,10 +552,10 @@ None
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-1.25741469797e+47
-2.95407146642e+14
-408248.290464
-0.0210074181092
+1.25706516362e+47
+2.9532500761e+14
+408248.290463863
+0.021007040392246275
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -579,7 +579,7 @@ NAME
     pyds.astro.astroeq
 
 FILE
-    /home/astrodoo/lib/py_lib/pyds/astro/astroeq.py
+    f:\doosoo\lib\pylib\pyds\astro\astroeq.py
 
 DESCRIPTION
     filename:
@@ -610,6 +610,9 @@ FUNCTIONS
            T: temperature in K
            rho: density in g/cm3
            mmw: mean molecular weight (default=1.3 for neutral solar abundance)
+
+    Lorentz(v)
+        Lorentz factor
 
     Mdotbondi(mbh=1.0, rho=1.0, cs=1.0)
         Bondi Accretion rate
@@ -694,7 +697,7 @@ circular orbit with the given parameters of black hole (mass, spin)</li>
 </ul>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [2]:
+<span></span>In [7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython2"><div class="highlight"><pre>
@@ -709,7 +712,7 @@ circular orbit with the given parameters of black hole (mass, spin)</li>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [4]:
+<span></span>In [8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython2"><div class="highlight"><pre>
@@ -732,14 +735,14 @@ risco = 2.044201 rg
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none"><div class="highlight"><pre>
-<span></span>In [6]:
+<span></span>In [9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython2"><div class="highlight"><pre>
 <span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 
 <span class="n">figdir</span> <span class="o">=</span> <span class="s1">&#39;./example_data/&#39;</span>
-<span class="n">Sgr</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">rgmax</span><span class="o">=</span><span class="mf">1e3</span><span class="p">,</span><span class="n">log</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">figdir</span><span class="o">+</span><span class="s2">&quot;bhscale.eps&quot;</span><span class="p">)</span>
+<span class="n">Sgr</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">rgmax</span><span class="o">=</span><span class="mf">1e5</span><span class="p">,</span><span class="n">log</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">figdir</span><span class="o">+</span><span class="s2">&quot;bhscale.eps&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -788,7 +791,7 @@ saved to ./example_data/bhscale.eps
   <div role="contentinfo">
     <p>
         &copy; Copyright 2017, Doosoo Yoon.
-      Last updated on Jan 25, 2019.
+      Last updated on Jan 29, 2019.
 
     </p>
   </div>
