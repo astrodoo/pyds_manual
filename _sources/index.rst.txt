@@ -11,7 +11,9 @@ Introduction
 ~~~~~~~~~~~~
 
     This is the compilation of simple python pacakages, which is useful for data anaylsis in astrophysics. 
-    All modules are coded with python 2.7. This is open source, which is permitted to be modified and spread. 
+    All modules are compatible with both python 2.7 and 3.x. 
+    (Module "future" is required to be pre-installed.)
+    This is open source, which is permitted to be modified and spread. 
     The contact information is noted at https://astrodoo.github.io
 
 
