@@ -69,7 +69,7 @@ github_project_url = "https://github.com/astrodoo/pyds"
 # built documents.
 #
 # The short X.Y version.
-version = u'v2.0'
+version = u'v3.1'
 # The full version, including alpha/beta/rc tags.
 #release = u'v1.0'
 

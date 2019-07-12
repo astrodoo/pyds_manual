@@ -1,1 +1,1 @@
-pyds manual
+Manual document created by Sphinx
