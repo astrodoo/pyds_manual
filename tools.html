@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,6 +11,10 @@
   
 
   
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
   
     <link rel="shortcut icon" href="_static/atom.ico"/>
   
@@ -19,23 +22,23 @@
   
 
   
-  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
         <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true, "ignoreClass": "document", "processClass": "math|output_area"}})</script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="pyds.numerical.sodshock" href="SodShockTube.html" />
@@ -53,7 +56,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> pyds
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> pyds
           
 
           
@@ -63,7 +66,7 @@
             
             
               <div class="version">
-                v3.2
+                v3.0
               </div>
             
           
@@ -80,6 +83,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -97,7 +101,6 @@
 <li class="toctree-l2"><a class="reference internal" href="#pyds.tools.axpos">pyds.tools.axpos</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pyds.tools.mimicAlpha_to_rgb">pyds.tools.mimicAlpha_to_rgb</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pyds.tools.mtickexp">pyds.tools.mtickexp</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#pyds.tools.images2movie">pyds.tools.images2movie</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="SodShockTube.html">pyds.numerical.sodshock</a></li>
@@ -106,6 +109,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -172,16 +176,16 @@
 /* CSS for nbsphinx extension */
 
 /* remove conflicting styling from Sphinx themes */
-div.nbinput,
-div.nbinput div.prompt,
-div.nbinput div.input_area,
-div.nbinput div[class*=highlight],
-div.nbinput div[class*=highlight] pre,
-div.nboutput,
-div.nbinput div.prompt,
-div.nbinput div.output_area,
-div.nboutput div[class*=highlight],
-div.nboutput div[class*=highlight] pre {
+div.nbinput.container,
+div.nbinput.container div.prompt,
+div.nbinput.container div.input_area,
+div.nbinput.container div[class*=highlight],
+div.nbinput.container div[class*=highlight] pre,
+div.nboutput.container,
+div.nboutput.container div.prompt,
+div.nboutput.container div.output_area,
+div.nboutput.container div[class*=highlight],
+div.nboutput.container div[class*=highlight] pre {
     background: none;
     border: none;
     padding: 0 0;
@@ -190,13 +194,13 @@ div.nboutput div[class*=highlight] pre {
 }
 
 /* avoid gaps between output lines */
-div.nboutput div[class*=highlight] pre {
+div.nboutput.container div[class*=highlight] pre {
     line-height: normal;
 }
 
 /* input/output containers */
-div.nbinput,
-div.nboutput {
+div.nbinput.container,
+div.nboutput.container {
     display: -webkit-flex;
     display: flex;
     align-items: flex-start;
@@ -204,92 +208,104 @@ div.nboutput {
     width: 100%;
 }
 @media (max-width: 540px) {
-    div.nbinput,
-    div.nboutput {
+    div.nbinput.container,
+    div.nboutput.container {
         flex-direction: column;
     }
 }
 
 /* input container */
-div.nbinput {
+div.nbinput.container {
     padding-top: 5px;
 }
 
 /* last container */
-div.nblast {
+div.nblast.container {
     padding-bottom: 5px;
 }
 
 /* input prompt */
-div.nbinput div.prompt pre {
+div.nbinput.container div.prompt pre {
     color: #307FC1;
 }
 
 /* output prompt */
-div.nboutput div.prompt pre {
+div.nboutput.container div.prompt pre {
     color: #BF5B3D;
 }
 
 /* all prompts */
-div.nbinput div.prompt,
-div.nboutput div.prompt {
-    min-width: 5ex;
-    padding-top: 0.4em;
-    padding-right: 0.4em;
-    text-align: right;
-    flex: 0;
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
 }
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
 @media (max-width: 540px) {
-    div.nbinput div.prompt,
-    div.nboutput div.prompt {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
         text-align: left;
         padding: 0.4em;
     }
-    div.nboutput div.prompt.empty {
+    div.nboutput.container div.prompt.empty {
         padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
     }
 }
 
 /* disable scrollbars on prompts */
-div.nbinput div.prompt pre,
-div.nboutput div.prompt pre {
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
     overflow: hidden;
 }
 
 /* input/output area */
-div.nbinput div.input_area,
-div.nboutput div.output_area {
-    padding: 0.4em;
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
     -webkit-flex: 1;
     flex: 1;
     overflow: auto;
 }
 @media (max-width: 540px) {
-    div.nbinput div.input_area,
-    div.nboutput div.output_area {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
         width: 100%;
     }
 }
 
 /* input area */
-div.nbinput div.input_area {
+div.nbinput.container div.input_area {
     border: 1px solid #e0e0e0;
     border-radius: 2px;
     background: #f5f5f5;
 }
 
 /* override MathJax center alignment in output cells */
-div.nboutput div[class*=MathJax] {
+div.nboutput.container div[class*=MathJax] {
     text-align: left !important;
 }
 
 /* override sphinx.ext.imgmath center alignment in output cells */
-div.nboutput div.math p {
+div.nboutput.container div.math p {
     text-align: left;
 }
 
 /* standard error */
-div.nboutput div.output_area.stderr {
+div.nboutput.container div.output_area.stderr {
     background: #fdd;
 }
 
@@ -333,6 +349,27 @@ div.nboutput div.output_area.stderr {
 .ansi-bold { font-weight: bold; }
 .ansi-underline { text-decoration: underline; }
 
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
 /* Some additional styling taken form the Jupyter notebook CSS */
 div.rendered_html table {
   border: none;
@@ -370,13 +407,13 @@ div.rendered_html tbody tr:hover {
 /* CSS overrides for sphinx_rtd_theme */
 
 /* 24px margin */
-.nbinput.nblast,
-.nboutput.nblast {
+.nbinput.nblast.container,
+.nboutput.nblast.container {
     margin-bottom: 19px;  /* padding has already 5px */
 }
 
 /* ... except between code cells! */
-.nblast + .nbinput {
+.nblast.container + .nbinput.container {
     margin-top: -19px;
 }
 
@@ -394,9 +431,9 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="pyds.tools.readcol">
 <h2>pyds.tools.readcol<a class="headerlink" href="#pyds.tools.readcol" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>read the columns with formats from ascii data</li>
+<li><p>read the columns with formats from ascii data</p></li>
 </ul>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
@@ -415,11 +452,28 @@ div.rendered_html tbody tr:hover {
 <span class="n">text</span> <span class="o">=</span> <span class="n">testf</span><span class="o">.</span><span class="n">readlines</span><span class="p">();</span> <span class="n">testf</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
 <span class="k">for</span> <span class="n">itext</span> <span class="ow">in</span> <span class="n">text</span><span class="p">:</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">itext</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">itext</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nbinput nblast docutils container">
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+12.3    4134    232.    23d3    asdf
+
+142.    233     1d12    NAN     dfds
+
+2342.   12.2    2342.   12e1    zxcve
+
+211.    123     32432.  32423   kas
+
+423.    454     232     2321.   cxi
+
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
@@ -437,17 +491,25 @@ div.rendered_html tbody tr:hover {
 <span class="n">fdir</span> <span class="o">=</span> <span class="s1">&#39;./example_data/&#39;</span>
 <span class="n">fname</span> <span class="o">=</span> <span class="n">fdir</span><span class="o">+</span><span class="s1">&#39;test_usr&#39;</span>
 
-<span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span> <span class="o">=</span> <span class="n">readcol</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span><span class="n">format</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;i&#39;</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="s1">&#39;f&#39;</span><span class="p">,</span><span class="s1">&#39;s&#39;</span><span class="p">],</span><span class="n">nskip</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span> <span class="o">=</span> <span class="n">readcol</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span><span class="nb">format</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;i&#39;</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="s1">&#39;f&#39;</span><span class="p">,</span><span class="s1">&#39;s&#39;</span><span class="p">],</span><span class="n">nskip</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[ 142 2342  211  423] [   nan   120. 32423.  2321.] [&#39;dfds&#39; &#39;zxcve&#39; &#39;kas&#39; &#39;cxi&#39;]
+</pre></div></div>
 </div>
 </div>
 <div class="section" id="pyds.tools.axpos">
 <h2>pyds.tools.axpos<a class="headerlink" href="#pyds.tools.axpos" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>set the multiplots in a more intutive and easy way.</li>
+<li><p>set the multiplots in a more intutive and easy way.</p></li>
 </ul>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
@@ -461,8 +523,8 @@ div.rendered_html tbody tr:hover {
 <span class="sd">        &gt;&gt;&gt; plt.figure(...)</span>
 <span class="sd">        &gt;&gt;&gt; ax = plt.axes(axset.pos(...))</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">pyds.tools</span> <span class="kn">import</span> <span class="n">axpos</span>
 
 <span class="o">%</span><span class="k">matplotlib</span> inline
@@ -492,7 +554,7 @@ div.rendered_html tbody tr:hover {
 <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">xlim</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">xlim</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">ylim</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ylim</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;1st plot&#39;</span><span class="p">,(</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.9</span><span class="p">),</span><span class="n">xycoords</span><span class="o">=</span><span class="s1">&#39;axes fraction&#39;</span><span class="p">,</span><span class="n">ha</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span><span class="n">bbox</span><span class="o">=</span><span class="n">bbox_props</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">ax1</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">(),</span> <span class="n">visible</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">ax1</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">(),</span> <span class="n">visible</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="c1"># second plot</span>
 <span class="n">ax2</span>  <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">axset</span><span class="o">.</span><span class="n">pos</span><span class="p">(</span><span class="mi">222</span><span class="p">))</span>
@@ -500,8 +562,8 @@ div.rendered_html tbody tr:hover {
 <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">xlim</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">xlim</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">ylim</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ylim</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">ax2</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;2nd plot&#39;</span><span class="p">,(</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.9</span><span class="p">),</span><span class="n">xycoords</span><span class="o">=</span><span class="s1">&#39;axes fraction&#39;</span><span class="p">,</span><span class="n">ha</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span><span class="n">bbox</span><span class="o">=</span><span class="n">bbox_props</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">ax2</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">(),</span> <span class="n">visible</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">ax2</span><span class="o">.</span><span class="n">get_yticklabels</span><span class="p">(),</span> <span class="n">visible</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">ax2</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">(),</span> <span class="n">visible</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">ax2</span><span class="o">.</span><span class="n">get_yticklabels</span><span class="p">(),</span> <span class="n">visible</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="c1"># third plot</span>
 <span class="n">ax3</span>  <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">axset</span><span class="o">.</span><span class="n">pos</span><span class="p">(</span><span class="mi">223</span><span class="p">))</span>
@@ -516,7 +578,7 @@ div.rendered_html tbody tr:hover {
 <span class="n">ax4</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">xlim</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">xlim</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">ax4</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">ylim</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ylim</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">ax4</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;4th plot&#39;</span><span class="p">,(</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.8</span><span class="p">),</span><span class="n">xycoords</span><span class="o">=</span><span class="s1">&#39;axes fraction&#39;</span><span class="p">,</span><span class="n">ha</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span><span class="n">bbox</span><span class="o">=</span><span class="n">bbox_props</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">ax4</span><span class="o">.</span><span class="n">get_yticklabels</span><span class="p">(),</span> <span class="n">visible</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">ax4</span><span class="o">.</span><span class="n">get_yticklabels</span><span class="p">(),</span> <span class="n">visible</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="c1"># set the figure label</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;yaxis label&#39;</span><span class="p">,(</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">0.6</span><span class="p">),</span><span class="n">xycoords</span><span class="o">=</span><span class="s1">&#39;figure fraction&#39;</span><span class="p">,</span><span class="n">rotation</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">)</span>
@@ -528,10 +590,10 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Text(0.49, 0.02, &#39;xaxis label&#39;)
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Text(0.49, 0.02, &#39;xaxis label&#39;)
+</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
@@ -546,8 +608,8 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot; Even drawing part of plots is possible &quot;&quot;&quot;</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">pyds.tools</span> <span class="kn">import</span> <span class="n">axpos</span>
 
 <span class="o">%</span><span class="k">matplotlib</span> inline
@@ -577,7 +639,7 @@ div.rendered_html tbody tr:hover {
 <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">xlim</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">xlim</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">ylim</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ylim</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;1st plot&#39;</span><span class="p">,(</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.9</span><span class="p">),</span><span class="n">xycoords</span><span class="o">=</span><span class="s1">&#39;axes fraction&#39;</span><span class="p">,</span><span class="n">ha</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span><span class="n">bbox</span><span class="o">=</span><span class="n">bbox_props</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">ax1</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">(),</span> <span class="n">visible</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">ax1</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">(),</span> <span class="n">visible</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="c1"># second plot</span>
 <span class="n">ax2</span>  <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">axset</span><span class="o">.</span><span class="n">pos</span><span class="p">(</span><span class="mi">222</span><span class="p">))</span>
@@ -585,8 +647,8 @@ div.rendered_html tbody tr:hover {
 <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">xlim</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">xlim</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">ylim</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ylim</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">ax2</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;2nd plot&#39;</span><span class="p">,(</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.9</span><span class="p">),</span><span class="n">xycoords</span><span class="o">=</span><span class="s1">&#39;axes fraction&#39;</span><span class="p">,</span><span class="n">ha</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span><span class="n">bbox</span><span class="o">=</span><span class="n">bbox_props</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">ax2</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">(),</span> <span class="n">visible</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">ax2</span><span class="o">.</span><span class="n">get_yticklabels</span><span class="p">(),</span> <span class="n">visible</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">ax2</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">(),</span> <span class="n">visible</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">ax2</span><span class="o">.</span><span class="n">get_yticklabels</span><span class="p">(),</span> <span class="n">visible</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="c1"># third plot</span>
 <span class="n">ax3</span>  <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">axes</span><span class="p">(</span><span class="n">axset</span><span class="o">.</span><span class="n">pos</span><span class="p">(</span><span class="mi">223</span><span class="p">))</span>
@@ -605,10 +667,10 @@ div.rendered_html tbody tr:hover {
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>Text(0.49, 0.02, &#39;xaxis label&#39;)
-</pre></div>
-</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Text(0.49, 0.02, &#39;xaxis label&#39;)
+</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
@@ -630,8 +692,8 @@ div.rendered_html tbody tr:hover {
 <span class="sd">        &gt;&gt;&gt; ax=fig.add_subplot(...)</span>
 <span class="sd">        &gt;&gt;&gt; axpos = axset.adjust_subplots(fig)</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">pyds.tools</span> <span class="kn">import</span> <span class="n">axpos</span>
 
 <span class="o">%</span><span class="k">matplotlib</span> inline
@@ -656,7 +718,7 @@ div.rendered_html tbody tr:hover {
 <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">xlim</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">xlim</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">ylim</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ylim</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;1st plot&#39;</span><span class="p">,(</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.8</span><span class="p">),</span><span class="n">xycoords</span><span class="o">=</span><span class="s1">&#39;axes fraction&#39;</span><span class="p">,</span><span class="n">ha</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span><span class="n">bbox</span><span class="o">=</span><span class="n">bbox_props</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">ax1</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">(),</span> <span class="n">visible</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">ax1</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">(),</span> <span class="n">visible</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="c1"># second plot</span>
 <span class="n">ax2</span>  <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">222</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="n">ax1</span><span class="p">)</span>
@@ -664,8 +726,8 @@ div.rendered_html tbody tr:hover {
 <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">xlim</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">xlim</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">ylim</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ylim</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">ax2</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;2nd plot&#39;</span><span class="p">,(</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.8</span><span class="p">),</span><span class="n">xycoords</span><span class="o">=</span><span class="s1">&#39;axes fraction&#39;</span><span class="p">,</span><span class="n">ha</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span><span class="n">bbox</span><span class="o">=</span><span class="n">bbox_props</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">ax2</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">(),</span> <span class="n">visible</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">ax2</span><span class="o">.</span><span class="n">get_yticklabels</span><span class="p">(),</span> <span class="n">visible</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">ax2</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">(),</span> <span class="n">visible</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">ax2</span><span class="o">.</span><span class="n">get_yticklabels</span><span class="p">(),</span> <span class="n">visible</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="c1"># third plot</span>
 <span class="n">ax3</span>  <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">223</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="n">ax1</span><span class="p">)</span>
@@ -680,7 +742,7 @@ div.rendered_html tbody tr:hover {
 <span class="n">ax4</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">xlim</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">xlim</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">ax4</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">ylim</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">ylim</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">ax4</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;4th plot&#39;</span><span class="p">,(</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.8</span><span class="p">),</span><span class="n">xycoords</span><span class="o">=</span><span class="s1">&#39;axes fraction&#39;</span><span class="p">,</span><span class="n">ha</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span><span class="n">bbox</span><span class="o">=</span><span class="n">bbox_props</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">ax4</span><span class="o">.</span><span class="n">get_yticklabels</span><span class="p">(),</span> <span class="n">visible</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">ax4</span><span class="o">.</span><span class="n">get_yticklabels</span><span class="p">(),</span> <span class="n">visible</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="c1"># set the figure label</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;yaxis label&#39;</span><span class="p">,(</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">0.6</span><span class="p">),</span><span class="n">xycoords</span><span class="o">=</span><span class="s1">&#39;figure fraction&#39;</span><span class="p">,</span><span class="n">rotation</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">)</span>
@@ -702,7 +764,7 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="pyds.tools.mimicAlpha_to_rgb">
 <h2>pyds.tools.mimicAlpha_to_rgb<a class="headerlink" href="#pyds.tools.mimicAlpha_to_rgb" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>get the tuple of rgb, mimicking alpha (transparency) effect</li>
+<li><p>get the tuple of rgb, mimicking alpha (transparency) effect</p></li>
 </ul>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
@@ -718,9 +780,9 @@ div.rendered_html tbody tr:hover {
 
 <span class="sd">    Note that in this example, we draw each item twice, and then the legend should be merged.</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">pyds.tools</span> <span class="kn">import</span> <span class="n">mimicAlpha_to_rgb</span> <span class="k">as</span> <span class="n">ma</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="o">%</span><span class="k">matplotlib</span> inline
 
@@ -777,16 +839,16 @@ div.rendered_html tbody tr:hover {
 <div class="section" id="pyds.tools.mtickexp">
 <h2>pyds.tools.mtickexp<a class="headerlink" href="#pyds.tools.mtickexp" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>set the tick format to factor <span class="math notranslate nohighlight">\(\times 10^{\rm exponent}\)</span></li>
+<li><p>set the tick format to factor <span class="math notranslate nohighlight">\(\times 10^{\rm exponent}\)</span></p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">pyds.tools</span> <span class="kn">import</span> <span class="n">mtickexp</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="o">%</span><span class="k">matplotlib</span> inline
 
@@ -806,88 +868,6 @@ div.rendered_html tbody tr:hover {
 <div class="output_area docutils container">
 <img alt="_images/tools_11_0.png" src="_images/tools_11_0.png" />
 </div>
-</div>
-</div>
-<div class="section" id="pyds.tools.images2movie">
-<h2>pyds.tools.images2movie<a class="headerlink" href="#pyds.tools.images2movie" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li>Combine images to generate movie</li>
-<li>pre-requisite: ffmpeg should be installed.</li>
-</ul>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot; Read the image data &quot;&quot;&quot;</span>
-<span class="kn">import</span> <span class="nn">os</span>
-
-<span class="n">imgdir</span> <span class="o">=</span> <span class="s1">&#39;example_data/movie_images&#39;</span>
-<span class="n">allfiles</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">imgdir</span><span class="p">)</span>
-<span class="n">imgfiles</span> <span class="o">=</span> <span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">imgdir</span><span class="p">,</span><span class="nb">file</span><span class="p">)</span> <span class="k">for</span> <span class="nb">file</span> <span class="ow">in</span> <span class="n">allfiles</span> <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;png&#39;</span> <span class="ow">in</span> <span class="nb">file</span><span class="p">)]</span>
-
-<span class="k">print</span><span class="p">(</span><span class="n">imgfiles</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[&#39;example_data/movie_images\\frame000.png&#39;, &#39;example_data/movie_images\\frame001.png&#39;, &#39;example_data/movie_images\\frame002.png&#39;, &#39;example_data/movie_images\\frame003.png&#39;, &#39;example_data/movie_images\\frame004.png&#39;, &#39;example_data/movie_images\\frame005.png&#39;, &#39;example_data/movie_images\\frame006.png&#39;, &#39;example_data/movie_images\\frame007.png&#39;, &#39;example_data/movie_images\\frame008.png&#39;, &#39;example_data/movie_images\\frame009.png&#39;, &#39;example_data/movie_images\\frame010.png&#39;, &#39;example_data/movie_images\\frame011.png&#39;, &#39;example_data/movie_images\\frame012.png&#39;, &#39;example_data/movie_images\\frame013.png&#39;, &#39;example_data/movie_images\\frame014.png&#39;, &#39;example_data/movie_images\\frame015.png&#39;, &#39;example_data/movie_images\\frame016.png&#39;, &#39;example_data/movie_images\\frame017.png&#39;, &#39;example_data/movie_images\\frame018.png&#39;, &#39;example_data/movie_images\\frame019.png&#39;, &#39;example_data/movie_images\\frame020.png&#39;, &#39;example_data/movie_images\\frame021.png&#39;, &#39;example_data/movie_images\\frame022.png&#39;, &#39;example_data/movie_images\\frame023.png&#39;, &#39;example_data/movie_images\\frame024.png&#39;, &#39;example_data/movie_images\\frame025.png&#39;, &#39;example_data/movie_images\\frame026.png&#39;, &#39;example_data/movie_images\\frame027.png&#39;, &#39;example_data/movie_images\\frame028.png&#39;, &#39;example_data/movie_images\\frame029.png&#39;, &#39;example_data/movie_images\\frame030.png&#39;]
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="sd">&#39;&#39;&#39; Combine the images to generate movie clip &#39;&#39;&#39;</span>
-<span class="kn">from</span> <span class="nn">pyds.tools</span> <span class="kn">import</span> <span class="n">images2movie</span>
-
-<span class="n">images2movie</span><span class="p">(</span><span class="n">imgfiles</span><span class="p">,</span><span class="n">fps</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">out</span><span class="o">=</span><span class="s1">&#39;example_data/combinedImage.mp4&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Insert example_data/movie_images\frame000.png to the movie (last snapshot:example_data/movie_images\frame030.png)
-Insert example_data/movie_images\frame001.png to the movie (last snapshot:example_data/movie_images\frame030.png)
-Insert example_data/movie_images\frame002.png to the movie (last snapshot:example_data/movie_images\frame030.png)
-Insert example_data/movie_images\frame003.png to the movie (last snapshot:example_data/movie_images\frame030.png)
-Insert example_data/movie_images\frame004.png to the movie (last snapshot:example_data/movie_images\frame030.png)
-Insert example_data/movie_images\frame005.png to the movie (last snapshot:example_data/movie_images\frame030.png)
-Insert example_data/movie_images\frame006.png to the movie (last snapshot:example_data/movie_images\frame030.png)
-Insert example_data/movie_images\frame007.png to the movie (last snapshot:example_data/movie_images\frame030.png)
-Insert example_data/movie_images\frame008.png to the movie (last snapshot:example_data/movie_images\frame030.png)
-Insert example_data/movie_images\frame009.png to the movie (last snapshot:example_data/movie_images\frame030.png)
-Insert example_data/movie_images\frame010.png to the movie (last snapshot:example_data/movie_images\frame030.png)
-Insert example_data/movie_images\frame011.png to the movie (last snapshot:example_data/movie_images\frame030.png)
-Insert example_data/movie_images\frame012.png to the movie (last snapshot:example_data/movie_images\frame030.png)
-Insert example_data/movie_images\frame013.png to the movie (last snapshot:example_data/movie_images\frame030.png)
-Insert example_data/movie_images\frame014.png to the movie (last snapshot:example_data/movie_images\frame030.png)
-Insert example_data/movie_images\frame015.png to the movie (last snapshot:example_data/movie_images\frame030.png)
-Insert example_data/movie_images\frame016.png to the movie (last snapshot:example_data/movie_images\frame030.png)
-Insert example_data/movie_images\frame017.png to the movie (last snapshot:example_data/movie_images\frame030.png)
-Insert example_data/movie_images\frame018.png to the movie (last snapshot:example_data/movie_images\frame030.png)
-Insert example_data/movie_images\frame019.png to the movie (last snapshot:example_data/movie_images\frame030.png)
-Insert example_data/movie_images\frame020.png to the movie (last snapshot:example_data/movie_images\frame030.png)
-Insert example_data/movie_images\frame021.png to the movie (last snapshot:example_data/movie_images\frame030.png)
-Insert example_data/movie_images\frame022.png to the movie (last snapshot:example_data/movie_images\frame030.png)
-Insert example_data/movie_images\frame023.png to the movie (last snapshot:example_data/movie_images\frame030.png)
-Insert example_data/movie_images\frame024.png to the movie (last snapshot:example_data/movie_images\frame030.png)
-Insert example_data/movie_images\frame025.png to the movie (last snapshot:example_data/movie_images\frame030.png)
-Insert example_data/movie_images\frame026.png to the movie (last snapshot:example_data/movie_images\frame030.png)
-Insert example_data/movie_images\frame027.png to the movie (last snapshot:example_data/movie_images\frame030.png)
-Insert example_data/movie_images\frame028.png to the movie (last snapshot:example_data/movie_images\frame030.png)
-Insert example_data/movie_images\frame029.png to the movie (last snapshot:example_data/movie_images\frame030.png)
-Insert example_data/movie_images\frame030.png to the movie (last snapshot:example_data/movie_images\frame030.png)
-movie file is generated: example_data/combinedImage.mp4
-</pre></div></div>
 </div>
 </div>
 </div>
@@ -912,14 +892,22 @@ movie file is generated: example_data/combinedImage.mp4
 
   <div role="contentinfo">
     <p>
+        
         &copy; Copyright 2017, Doosoo Yoon
       <span class="lastupdated">
-        Last updated on Oct 01, 2020.
+        Last updated on Oct 28, 2020.
       </span>
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -930,7 +918,6 @@ movie file is generated: example_data/combinedImage.mp4
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {
