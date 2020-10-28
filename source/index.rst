@@ -39,7 +39,6 @@ Dependence
     * numpy
     * astropy
     * matplotlib
-    * ffmpeg
 
 
 .. toctree::

@@ -3,8 +3,7 @@
 
 # You can set these variables from the command line.
 SPHINXOPTS    =
-#SPHINXBUILD   = python -msphinx
-SPHINXBUILD   = /cygdrive/c/Users/astrodoo/Anaconda3/python -msphinx
+SPHINXBUILD   = python -msphinx
 SPHINXPROJ    = pyds
 SOURCEDIR     = source
 BUILDDIR      = build
