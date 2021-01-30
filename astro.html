@@ -66,7 +66,7 @@
             
             
               <div class="version">
-                v3.0
+                v3.1
               </div>
             
           
@@ -456,9 +456,9 @@ div.rendered_html tbody tr:hover {
 <div class="highlight"><pre>
     name         name in astropy         value in cgs    unit
 ----------------------------------------------------------------------
-       g                       G         6.674080e-08    cm3 / (g s2)
+       g                       G         6.674300e-08    cm3 / (g s2)
     lsun                   L_sun         3.828000e+33    erg / s
-    msun                   M_sun         1.988475e+33    g
+    msun                   M_sun         1.988410e+33    g
     rsun                   R_sun         6.957000e+10    cm
       au                      au         1.495979e+13    cm
        c                       c         2.997925e+10    cm / s
@@ -470,13 +470,13 @@ div.rendered_html tbody tr:hover {
       me                     m_e         9.109384e-28    g
       mn                     m_n         1.674927e-24    g
       mp                     m_p         1.672622e-24    g
-      mh                     m_p         1.672622e-24    g
      amu                       u         1.660539e-24    g
   sigmaT                 sigma_T         6.652459e-25    cm2
- sigmaSB                sigma_sb         5.670367e-05    g / (K4 s3)
+ sigmaSB                sigma_sb         5.670374e-05    g / (K4 s3)
      esu                   e.esu         4.803205e-10    cgs
 ----------------------------------------------------------------------
 not in astropy:
+      mh          not in astropy         1.673533e-24    g
     year          not in astropy         3.153600e+07    s
      lyr          not in astropy         9.454255e+17    cm
       eV          not in astropy         1.602177e-12    erg
@@ -500,7 +500,7 @@ not in astropy:
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-6.674079999999999e-08 3.085677581467192e+18 9.454254955488e+17
+6.674299999999999e-08 3.085677581467192e+18 9.454254955488e+17
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -522,7 +522,7 @@ not in astropy:
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-6.674079999999999e-08 6.674079999999999e-08
+6.674299999999999e-08 6.674299999999999e-08
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -543,9 +543,9 @@ not in astropy:
 <div class="highlight"><pre>
     name         name in astropy         value in cgs    unit
 ----------------------------------------------------------------------
-       g                       G         6.674080e-08    cm3 / (g s2)
+       g                       G         6.674300e-08    cm3 / (g s2)
     lsun                   L_sun         3.828000e+33    erg / s
-    msun                   M_sun         1.988475e+33    g
+    msun                   M_sun         1.988410e+33    g
     rsun                   R_sun         6.957000e+10    cm
       au                      au         1.495979e+13    cm
        c                       c         2.997925e+10    cm / s
@@ -557,13 +557,13 @@ not in astropy:
       me                     m_e         9.109384e-28    g
       mn                     m_n         1.674927e-24    g
       mp                     m_p         1.672622e-24    g
-      mh                     m_p         1.672622e-24    g
      amu                       u         1.660539e-24    g
   sigmaT                 sigma_T         6.652459e-25    cm2
- sigmaSB                sigma_sb         5.670367e-05    g / (K4 s3)
+ sigmaSB                sigma_sb         5.670374e-05    g / (K4 s3)
      esu                   e.esu         4.803205e-10    cgs
 ----------------------------------------------------------------------
 not in astropy:
+      mh          not in astropy         1.673533e-24    g
     year          not in astropy         3.153600e+07    s
      lyr          not in astropy         9.454255e+17    cm
       eV          not in astropy         1.602177e-12    erg
@@ -603,10 +603,10 @@ None
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-1.2570651636194645e+47
-295325007610024.9
+1.2570651798467909e+47
+295325007610024.94
 408248.290463863
-0.021007040392246275
+0.02100669416964832
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
@@ -732,7 +732,7 @@ FUNCTIONS
             r: radius
 
 FILE
-    /Users/astrodoo/lib/py_lib/pyds/astro/astroeq.py
+    /Users/astrodoo/lib/pylib/pyds/astro/astroeq.py
 
 
 </pre></div></div>
@@ -744,8 +744,8 @@ FILE
 <li><p>calculate the radius of event horizon and the innermost stable circular orbit with the given parameters of black hole (mass, spin)</p></li>
 <li><p>visualize the scales</p></li>
 </ul>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -754,9 +754,25 @@ FILE
 <span class="c1"># mbh: black hole mass in solar mass</span>
 <span class="c1"># distance: distance to the target in kpc unit</span>
 <span class="c1"># spin: spin of black hole</span>
-<span class="n">Sgr</span> <span class="o">=</span> <span class="n">bhscale</span><span class="p">(</span><span class="n">mbh</span><span class="o">=</span><span class="mf">4.1e6</span><span class="p">,</span> <span class="n">distance</span><span class="o">=</span><span class="mf">8.1</span><span class="p">,</span> <span class="n">spin</span><span class="o">=</span><span class="mf">0.9375</span><span class="p">)</span>
+<span class="n">Sgr</span> <span class="o">=</span> <span class="n">bhscale</span><span class="p">(</span><span class="n">mbh</span><span class="o">=</span><span class="mf">4.1e6</span><span class="p">,</span> <span class="n">distance</span><span class="o">=</span><span class="mf">8.1</span><span class="p">,</span> <span class="n">spin</span><span class="o">=</span><span class="mf">0.9375</span><span class="p">,</span> <span class="n">silent</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+BH Params: Mbh=4.100000e+06 M_sun, spin=0.937500, Distance=8.100000e+00 kpc
+rg: 6.054163e+11 cm
+rg_mias: 4.996244 micro-arcsec
+rh: 1.347985 rg
+rh_mias: 6.734864 micro-arcsec
+risco: 2.044201 rg
+rph: 1.434516 rg
+L_edd = 1.346386e+11 L_sun
+Mdot_edd = 9.094963e-02 M_sun/year
+</pre></div></div>
 </div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
@@ -766,7 +782,6 @@ FILE
 <span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;rg = </span><span class="si">%e</span><span class="s1"> cm&#39;</span><span class="o">%</span><span class="k">Sgr</span>.rg)
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;rh = </span><span class="si">%f</span><span class="s1"> rg&#39;</span><span class="o">%</span><span class="k">Sgr</span>.rh)
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;risco = </span><span class="si">%f</span><span class="s1"> rg&#39;</span><span class="o">%</span><span class="k">Sgr</span>.risco)
-
 </pre></div>
 </div>
 </div>
@@ -796,18 +811,7 @@ risco = 2.044201 rg
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div class="highlight"><pre>
-BH Params: Mbh=4.100000e+06 M_sun, spin=0.937500, Distance=8.100000e+00 kpc
-rg: 6.054163e+11 cm
-rh: 1.347985 rg
-risco: 2.044201 rg
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<img alt="_images/astro_12_1.png" src="_images/astro_12_1.png" />
+<img alt="_images/astro_12_0.png" src="_images/astro_12_0.png" />
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -817,6 +821,59 @@ risco: 2.044201 rg
 <div class="highlight"><pre>
 saved to ./example_data/bhscale.eps
 </pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">pyds.astro</span> <span class="kn">import</span> <span class="n">bhscale</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">0.99999</span><span class="p">,</span><span class="mf">0.99999</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">rh</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<span class="n">rph</span>   <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<span class="n">risco</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">ia</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">a</span><span class="p">):</span>
+    <span class="n">bh</span> <span class="o">=</span> <span class="n">bhscale</span><span class="p">(</span><span class="n">spin</span><span class="o">=</span><span class="n">ia</span><span class="p">)</span>
+
+    <span class="n">rh</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">bh</span><span class="o">.</span><span class="n">rh</span>
+    <span class="n">rph</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">bh</span><span class="o">.</span><span class="n">rph</span>
+    <span class="n">risco</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">bh</span><span class="o">.</span><span class="n">risco</span>
+
+<span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">rh</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$r_{\rm h}$&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">rph</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$r_{\rm ph}$&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">risco</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$r_{\rm isco}$&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C2&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">bh0</span> <span class="o">=</span> <span class="n">bhscale</span><span class="p">(</span><span class="n">spin</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">rh0</span><span class="p">,</span> <span class="n">rph0</span><span class="p">,</span> <span class="n">risco0</span> <span class="o">=</span> <span class="n">bh0</span><span class="o">.</span><span class="n">rh</span><span class="p">,</span> <span class="n">bh0</span><span class="o">.</span><span class="n">rph</span><span class="p">,</span> <span class="n">bh0</span><span class="o">.</span><span class="n">risco</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">rh0</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">rph0</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="n">risco0</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;C2&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">,</span><span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Black hole Spin&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;radius (r$_g$)&#39;</span><span class="p">)</span>
+
+<span class="n">figdir</span> <span class="o">=</span> <span class="s1">&#39;./example_data/&#39;</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">figdir</span><span class="p">,</span><span class="s1">&#39;rscale_spin.png&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/astro_13_0.png" src="_images/astro_13_0.png" />
+</div>
 </div>
 </div>
 </div>
@@ -844,7 +901,7 @@ saved to ./example_data/bhscale.eps
         
         &copy; Copyright 2017, Doosoo Yoon
       <span class="lastupdated">
-        Last updated on Dec 18, 2020.
+        Last updated on Jan 30, 2021.
       </span>
 
     </p>

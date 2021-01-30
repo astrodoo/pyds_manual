@@ -66,7 +66,7 @@
             
             
               <div class="version">
-                v3.0
+                v3.1
               </div>
             
           
@@ -101,6 +101,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#pyds.tools.axpos">pyds.tools.axpos</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pyds.tools.mimicAlpha_to_rgb">pyds.tools.mimicAlpha_to_rgb</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#pyds.tools.mtickexp">pyds.tools.mtickexp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pyds.tools.images2movie">pyds.tools.images2movie</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="SodShockTube.html">pyds.numerical.sodshock</a></li>
@@ -433,7 +434,7 @@ div.rendered_html tbody tr:hover {
 <ul class="simple">
 <li><p>read the columns with formats from ascii data</p></li>
 </ul>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
@@ -456,24 +457,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-12.3    4134    232.    23d3    asdf
-
-142.    233     1d12    NAN     dfds
-
-2342.   12.2    2342.   12e1    zxcve
-
-211.    123     32432.  32423   kas
-
-423.    454     232     2321.   cxi
-
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
@@ -496,14 +480,6 @@ div.rendered_html tbody tr:hover {
 <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-[ 142 2342  211  423] [   nan   120. 32423.  2321.] [&#39;dfds&#39; &#39;zxcve&#39; &#39;kas&#39; &#39;cxi&#39;]
-</pre></div></div>
 </div>
 </div>
 <div class="section" id="pyds.tools.axpos">
@@ -842,7 +818,7 @@ Text(0.49, 0.02, &#39;xaxis label&#39;)
 <li><p>set the tick format to factor <span class="math notranslate nohighlight">\(\times 10^{\rm exponent}\)</span></p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -870,6 +846,88 @@ Text(0.49, 0.02, &#39;xaxis label&#39;)
 </div>
 </div>
 </div>
+<div class="section" id="pyds.tools.images2movie">
+<h2>pyds.tools.images2movie<a class="headerlink" href="#pyds.tools.images2movie" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Combine images to generate movie</p></li>
+<li><p>pre-requisite: ffmpeg should be installed.</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot; Read the image data &quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">imgdir</span> <span class="o">=</span> <span class="s1">&#39;example_data/movie_images&#39;</span>
+<span class="n">allfiles</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">imgdir</span><span class="p">)</span>
+<span class="n">imgfiles</span> <span class="o">=</span> <span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">imgdir</span><span class="p">,</span><span class="n">file</span><span class="p">)</span> <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">allfiles</span> <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;png&#39;</span> <span class="ow">in</span> <span class="n">file</span><span class="p">)]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">imgfiles</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;example_data/movie_images\\frame000.png&#39;, &#39;example_data/movie_images\\frame001.png&#39;, &#39;example_data/movie_images\\frame002.png&#39;, &#39;example_data/movie_images\\frame003.png&#39;, &#39;example_data/movie_images\\frame004.png&#39;, &#39;example_data/movie_images\\frame005.png&#39;, &#39;example_data/movie_images\\frame006.png&#39;, &#39;example_data/movie_images\\frame007.png&#39;, &#39;example_data/movie_images\\frame008.png&#39;, &#39;example_data/movie_images\\frame009.png&#39;, &#39;example_data/movie_images\\frame010.png&#39;, &#39;example_data/movie_images\\frame011.png&#39;, &#39;example_data/movie_images\\frame012.png&#39;, &#39;example_data/movie_images\\frame013.png&#39;, &#39;example_data/movie_images\\frame014.png&#39;, &#39;example_data/movie_images\\frame015.png&#39;, &#39;example_data/movie_images\\frame016.png&#39;, &#39;example_data/movie_images\\frame017.png&#39;, &#39;example_data/movie_images\\frame018.png&#39;, &#39;example_data/movie_images\\frame019.png&#39;, &#39;example_data/movie_images\\frame020.png&#39;, &#39;example_data/movie_images\\frame021.png&#39;, &#39;example_data/movie_images\\frame022.png&#39;, &#39;example_data/movie_images\\frame023.png&#39;, &#39;example_data/movie_images\\frame024.png&#39;, &#39;example_data/movie_images\\frame025.png&#39;, &#39;example_data/movie_images\\frame026.png&#39;, &#39;example_data/movie_images\\frame027.png&#39;, &#39;example_data/movie_images\\frame028.png&#39;, &#39;example_data/movie_images\\frame029.png&#39;, &#39;example_data/movie_images\\frame030.png&#39;]
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="sd">&#39;&#39;&#39; Combine the images to generate movie clip &#39;&#39;&#39;</span>
+<span class="kn">from</span> <span class="nn">pyds.tools</span> <span class="kn">import</span> <span class="n">images2movie</span>
+
+<span class="n">images2movie</span><span class="p">(</span><span class="n">imgfiles</span><span class="p">,</span><span class="n">fps</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span><span class="n">out</span><span class="o">=</span><span class="s1">&#39;example_data/combinedImage.mp4&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Insert example_data/movie_images\frame000.png to the movie (last snapshot:example_data/movie_images\frame030.png)
+Insert example_data/movie_images\frame001.png to the movie (last snapshot:example_data/movie_images\frame030.png)
+Insert example_data/movie_images\frame002.png to the movie (last snapshot:example_data/movie_images\frame030.png)
+Insert example_data/movie_images\frame003.png to the movie (last snapshot:example_data/movie_images\frame030.png)
+Insert example_data/movie_images\frame004.png to the movie (last snapshot:example_data/movie_images\frame030.png)
+Insert example_data/movie_images\frame005.png to the movie (last snapshot:example_data/movie_images\frame030.png)
+Insert example_data/movie_images\frame006.png to the movie (last snapshot:example_data/movie_images\frame030.png)
+Insert example_data/movie_images\frame007.png to the movie (last snapshot:example_data/movie_images\frame030.png)
+Insert example_data/movie_images\frame008.png to the movie (last snapshot:example_data/movie_images\frame030.png)
+Insert example_data/movie_images\frame009.png to the movie (last snapshot:example_data/movie_images\frame030.png)
+Insert example_data/movie_images\frame010.png to the movie (last snapshot:example_data/movie_images\frame030.png)
+Insert example_data/movie_images\frame011.png to the movie (last snapshot:example_data/movie_images\frame030.png)
+Insert example_data/movie_images\frame012.png to the movie (last snapshot:example_data/movie_images\frame030.png)
+Insert example_data/movie_images\frame013.png to the movie (last snapshot:example_data/movie_images\frame030.png)
+Insert example_data/movie_images\frame014.png to the movie (last snapshot:example_data/movie_images\frame030.png)
+Insert example_data/movie_images\frame015.png to the movie (last snapshot:example_data/movie_images\frame030.png)
+Insert example_data/movie_images\frame016.png to the movie (last snapshot:example_data/movie_images\frame030.png)
+Insert example_data/movie_images\frame017.png to the movie (last snapshot:example_data/movie_images\frame030.png)
+Insert example_data/movie_images\frame018.png to the movie (last snapshot:example_data/movie_images\frame030.png)
+Insert example_data/movie_images\frame019.png to the movie (last snapshot:example_data/movie_images\frame030.png)
+Insert example_data/movie_images\frame020.png to the movie (last snapshot:example_data/movie_images\frame030.png)
+Insert example_data/movie_images\frame021.png to the movie (last snapshot:example_data/movie_images\frame030.png)
+Insert example_data/movie_images\frame022.png to the movie (last snapshot:example_data/movie_images\frame030.png)
+Insert example_data/movie_images\frame023.png to the movie (last snapshot:example_data/movie_images\frame030.png)
+Insert example_data/movie_images\frame024.png to the movie (last snapshot:example_data/movie_images\frame030.png)
+Insert example_data/movie_images\frame025.png to the movie (last snapshot:example_data/movie_images\frame030.png)
+Insert example_data/movie_images\frame026.png to the movie (last snapshot:example_data/movie_images\frame030.png)
+Insert example_data/movie_images\frame027.png to the movie (last snapshot:example_data/movie_images\frame030.png)
+Insert example_data/movie_images\frame028.png to the movie (last snapshot:example_data/movie_images\frame030.png)
+Insert example_data/movie_images\frame029.png to the movie (last snapshot:example_data/movie_images\frame030.png)
+Insert example_data/movie_images\frame030.png to the movie (last snapshot:example_data/movie_images\frame030.png)
+movie file is generated: example_data/combinedImage.mp4
+</pre></div></div>
+</div>
+</div>
 </div>
 
 
@@ -895,7 +953,7 @@ Text(0.49, 0.02, &#39;xaxis label&#39;)
         
         &copy; Copyright 2017, Doosoo Yoon
       <span class="lastupdated">
-        Last updated on Dec 18, 2020.
+        Last updated on Jan 30, 2021.
       </span>
 
     </p>
